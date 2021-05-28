@@ -1,0 +1,87 @@
+@mixin itemHover {
+    cursor: pointer;
+    border: 1px solid lightseagreen;
+    background-color: lightsteelblue;
+}
+@mixin buttonSite {
+    background-color: #fff;
+    border: 1px solid lightgrey;
+    padding: 6px 15px;
+    // margin: 6px 20px;
+    border-radius: 20px;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 1400px;
+}
+.cart {
+        width: 100vw;
+        min-height: 70px;
+        text-align: end;
+
+    &-menu {
+        width: 100vw;
+        background-color: lightgray;
+        min-height: 40px;
+    }
+
+    &-buttonblock {
+        border: 1px solid lightslategray;
+    }
+
+    &-button {
+        @include buttonSite;
+        margin: 10px 20px 10px 0;
+
+        &:hover {
+            @include itemHover;
+        }
+    }
+}
+.goods-list {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+.goods-item {
+    margin: 0 10px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    &-pic {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    // &-title {
+    // }
+
+    &:hover {
+        @include itemHover;
+    }
+
+    &-btn {
+        @include buttonSite;
+        margin: 10px 0;align-self: flex-end;
+
+        &:hover {
+            @include itemHover;
+        }
+    }
+
+    &-title {
+        margin: 0;
+    }
+
+    &-price {
+        margin: 0;
+    }
+}
