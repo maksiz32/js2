@@ -1,29 +1,41 @@
-const goods = [
-    { title: 'Shirt', price: 150, img: 'nophoto.png' },
-    { title: 'Socks', price: 50, img: 'nophoto.png' },
-    { title: 'Jacket', price: 350, img: 'nophoto.png' },
-    { title: 'Shoes', price: 250, img: 'nophoto.png' },
-];
-// const model = [
-//     {type: 'img', class: 'goods-item-pic', options: 'src="img/'+goods.img+'"' },
-//     {type: 'h3', class: 'goods-item-title', value: goods.title},
-//     {type: 'p', class: 'goods-item-price', value: goods.price},
-//     {type: 'button', class: 'goods-item-price', value: 'Добавить', options: 'type="button"'}
-// ];
-
-function renderGoodsItem(item) {
-    return `<div class="goods-item">
-                <img class="goods-item-pic" src="img/${item.img} "width="120" height="100">
-                <h3 class="goods-item-title">${item.title}</h3>
-                <p class="goods-item-price">${item.price}</p>
+class GoodsItem {
+    constructor(title, price, img = 'nophoto.png') {
+        this.title = title;
+        this.price = price;
+        this.img = img
+    }
+    render() {
+        return `<div class="goods-item">
+                <img class="goods-item-pic" src="img/${this.img} "width="120" height="100">
+                <h3 class="goods-item-title">${this.title}</h3>
+                <p class="goods-item-price">${this.price}</p>
                 <button type="button" class="goods-item-btn">Добавить</button>
             </div>`;
-};
-
-function renderGoodsList(list) {
-    let goodsList = list.map(renderGoodsItem).join('');
-    document.querySelector('.goods-list').innerHTML = goodsList;
+    }
 }
 
-renderGoodsList(goods);
-  
+class GoodsList {
+    constructor() {
+      this.goods = [];
+    }
+    fetchGoods() {
+        this.goods = [
+            { title: 'Shirt', price: 150 },
+            { title: 'Socks', price: 50 },
+            { title: 'Jacket', price: 350 },
+            { title: 'Shoes', price: 250 },
+        ];
+    }
+    render() {
+        let listHtml = '';
+        this.goods.forEach(good => {
+            const goodItem = new GoodsItem(good.title, good.price);
+            listHtml += goodItem.render();
+        });
+        document.querySelector('.goods-list').innerHTML = listHtml;
+    }
+}
+
+const list = new GoodsList();
+list.fetchGoods();
+list.render();
