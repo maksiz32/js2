@@ -100,4 +100,13 @@ body {
 .goods-item-price {
   margin: 0;
 }
+
+.goods-total {
+  background-color: #2c5a5c;
+  padding: 10px 20px;
+  text-align: end;
+  color: #fff;
+  font-size: 1.17em;
+  font-weight: bold;
+}
 /*# sourceMappingURL=main.css.map */
