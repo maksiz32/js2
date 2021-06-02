@@ -21,26 +21,32 @@ class Hamburger {
     }          // Узнать начинку гамбургера
     calculatePrice() {
         let price = 0;
-        let item = hamburger.getByName(this.getSize());
+        // let item = hamburger.getByName(this.getSize());
+        let item = hamburger.find(element => element.name === this.getSize());
         price += item.price;
-        let itemStuff = stuffingList.getByName(this.getStuffing());
+        // let itemStuff = stuffingList.getByName(this.getStuffing());
+        let itemStuff = stuffingList.find(element => element.name === this.getStuffing());
         price += itemStuff.price;
         if (this.getToppings().length > 0) {
             this.getToppings().forEach(el => {
-                price += toppingList.getByName(el).price;
+                // price += toppingList.getByName(el).price;
+                price += toppingList.find(element => element.name === el).price;
             })
         }
         return price;
     }       // Узнать цену
     calculateCalories() {
         let calor = 0;
-        let item = hamburger.getByName(this.getSize());
+        // let item = hamburger.getByName(this.getSize());
+        let item = hamburger.find(element => element.name === this.getSize());
         calor += item.calories;
-        let itemStuff = stuffingList.getByName(this.getStuffing());
+        // let itemStuff = stuffingList.getByName(this.getStuffing());
+        let itemStuff = stuffingList.find(element => element.name === this.getStuffing());
         calor += itemStuff.calories;
         if (this.getToppings().length > 0) {
             this.getToppings().forEach(el => {
-                calor += toppingList.getByName(el).calories;
+                // calor += toppingList.getByName(el).calories;
+                calor += toppingList.find(element => element.name === el).calories;
             })
         }
         return calor;
@@ -59,15 +65,6 @@ const toppingList = [
     {name: 'pepper', price: 15, calories: 0},
     {name: 'mayonnaise', price: 20, calories: 10}
 ]
-//Новый кастомный метод для массива
-Array.prototype.getByName = function(str) {
-    for (let item of this) {
-        if (item.name === str) {
-            return item;
-        }
-    }
-    return null;
-}
 const a = new Hamburger('big', 'salad');
 a.addTopping('pepper');
 a.addTopping('mayonnaise');

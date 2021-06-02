@@ -35,10 +35,10 @@ class GoodsList {
         document.querySelector('.goods-list').innerHTML = listHtml;
     }
     sumAllGoods() {
-        let sum = 0;
-        this.goods.forEach(good => {
-            sum += good.price;
-        })
+        let sum = this.goods.reduce((summ, el) => summ + el.price, 0);
+        // this.goods.forEach(good => {
+        //     sum += good.price;
+        // })
         const totalPrice = `<div class="goods-total">Итого: ${sum} руб</div>`;
         document.querySelector('.goods-list').insertAdjacentHTML('afterend', totalPrice);
     }
@@ -79,7 +79,6 @@ class ItemInBasket extends GoodsItem {
 const list = new GoodsList();
 list.fetchGoods();
 list.render();
-console.log(list.sumAllGoods());
 bask = new Basket;
 
 document.querySelector('.cart-button').addEventListener('click', function() {
