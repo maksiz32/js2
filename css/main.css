@@ -9,6 +9,28 @@ body {
   max-width: 1400px;
 }
 
+.modal-window {
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 10, 10, 0.9);
+  position: absolute;
+  overflow-y: hidden;
+}
+
+.modal-close {
+  fill: #fff;
+  z-index: 2;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.modal-close:hover {
+  fill: #afaeae;
+  cursor: pointer;
+}
+
 .cart {
   width: 100vw;
   min-height: 70px;
@@ -99,5 +121,14 @@ body {
 
 .goods-item-price {
   margin: 0;
+}
+
+.goods-total {
+  background-color: #2c5a5c;
+  padding: 10px 20px;
+  text-align: end;
+  color: #fff;
+  font-size: 1.17em;
+  font-weight: bold;
 }
 /*# sourceMappingURL=main.css.map */
