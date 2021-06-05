@@ -23,7 +23,7 @@ body {
   z-index: 2;
   position: absolute;
   top: 30px;
-  left: 30px;
+  right: 30px;
 }
 
 .modal-close:hover {
@@ -130,5 +130,23 @@ body {
   color: #fff;
   font-size: 1.17em;
   font-weight: bold;
+}
+
+.basket {
+  position: absolute;
+  top: 100px;
+  z-index: 2;
+  background-color: white;
+  padding: 50px;
+  right: 55px;
+}
+
+.basket-item {
+  padding: 20px;
+  border: 1px solid lightgrey;
+}
+
+.basket span {
+  margin: 0 50px;
 }
 /*# sourceMappingURL=main.css.map */
