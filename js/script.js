@@ -43,12 +43,11 @@ class GoodsList {
         document.querySelector(this.selector).addEventListener('click', el => {
             if(el.target.classList.contains('goods-item-btn')) {
                 let item = new ItemInBasket(el.target.dataset['name'], el.target.dataset['price']);
-                this.addItem(item);
+                let bsk = new Basket;
+                console.log(bsk)
+                bsk.addItem(item);
             }
         })
-    }
-    addItem(el) {
-        //
     }
     sumAllGoods() {
         let sum = this.goods.reduce((summ, el) => summ += el.price, 0);
@@ -59,17 +58,14 @@ class GoodsList {
 
 class Basket {
     constructor() {
-        this.amount = 0;
-        this.count = 0;
         this.items = [];
         this.init();
     }
     fetchItems() {
         makeGETRequest(`${API_URL}/getBasket.json`)
             .then(data => {
-                this.amount = data.amount;
-                this.count = data.countGoods;
-                this.items = [...data.contents];
+                const outerbasket = [...data.contents];
+                outerbasket.forEach(el => this.addItem(el));
                 this.render();
             });
     }
@@ -93,18 +89,13 @@ class Basket {
             search.quantity++;
             this.renderItems('.basket');
         } else {
-            item = new ItemInBasket(el.product_name, el.price);
-            this.amount = item.count;
-            this.count = item.count;
-            this.items = [...data.contents];
-            this.render();
+            this.items.push(el);
         }
     }
     delItem(el) {
         let search = this.items.find(elem => elem.product_name == el.title);
         if(search.quantity > 1) {
             search.quantity--;
-            console.log(this.items);
             this.renderItems('.basket');
         } else {
             this.items.splice(this.items.indexOf(el), 1);
