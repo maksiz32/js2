@@ -43,9 +43,13 @@ class GoodsList {
         document.querySelector(this.selector).addEventListener('click', el => {
             if(el.target.classList.contains('goods-item-btn')) {
                 let item = new ItemInBasket(el.target.dataset['name'], el.target.dataset['price']);
-                let bsk = new Basket;
+                if(typeof bsk == "undefined") {
+                    var bsk = new Basket;
+                    bsk.addItem(item);
                 console.log(bsk)
-                bsk.addItem(item);
+                } else {
+                    bsk.addItem(item);
+                }
             }
         })
     }
