@@ -2,17 +2,17 @@ const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-sto
 
 class GoodsItem {
     constructor(title, price, img = 'nophoto.png') {
-        this.title = title;
+        this.product_name = title;
         this.price = price;
         this.img = img
     }
     render() {
         return `<div class="goods-item">
                     <img class="goods-item-pic" src="img/${this.img}" alt="${this.img}" width="120" height="100">
-                    <h3 class="goods-item-title">${this.title}</h3>
+                    <h3 class="goods-item-title">${this.product_name}</h3>
                     <p class="goods-item-price">${this.price}</p>
                     <button type="button" class="goods-item-btn"
-                    data-name="${this.title}" data-price="${this.price}">
+                    data-name="${this.product_name}" data-price="${this.price}">
                         Добавить
                     </button>
                 </div>`;
@@ -22,6 +22,7 @@ class GoodsItem {
 class GoodsList {
     constructor() {
         this.goods = [];
+        this.bask = bask;
         this.selector = '.goods-list';
     }
     fetchGoods() {
@@ -42,14 +43,9 @@ class GoodsList {
 
         document.querySelector(this.selector).addEventListener('click', el => {
             if(el.target.classList.contains('goods-item-btn')) {
-                let item = new ItemInBasket(el.target.dataset['name'], el.target.dataset['price']);
-                if(typeof bsk == "undefined") {
-                    var bsk = new Basket;
-                    bsk.addItem(item);
-                console.log(bsk)
-                } else {
-                    bsk.addItem(item);
-                }
+                let {name, price} = el.target.dataset;
+                let item = new ItemInBasket(name, price);
+                this.bask.addItem(item);
             }
         })
     }
@@ -64,13 +60,14 @@ class Basket {
     constructor() {
         this.items = [];
         this.init();
+        this.fetchItems();
     }
     fetchItems() {
+        console.log(this.items.length);
         makeGETRequest(`${API_URL}/getBasket.json`)
             .then(data => {
                 const outerbasket = [...data.contents];
                 outerbasket.forEach(el => this.addItem(el));
-                this.render();
             });
     }
     init() {
@@ -79,8 +76,8 @@ class Basket {
                 const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 511.76 511.76" class="modal-close">
                         <path d="M436.896,74.869c-99.84-99.819-262.208-99.819-362.048,0c-99.797,99.819-99.797,262.229,0,362.048    c49.92,49.899,115.477,74.837,181.035,74.837s131.093-24.939,181.013-74.837C536.715,337.099,536.715,174.688,436.896,74.869z     M361.461,331.317c8.341,8.341,8.341,21.824,0,30.165c-4.16,4.16-9.621,6.251-15.083,6.251c-5.461,0-10.923-2.091-15.083-6.251    l-75.413-75.435l-75.392,75.413c-4.181,4.16-9.643,6.251-15.083,6.251c-5.461,0-10.923-2.091-15.083-6.251    c-8.341-8.341-8.341-21.845,0-30.165l75.392-75.413l-75.413-75.413c-8.341-8.341-8.341-21.845,0-30.165    c8.32-8.341,21.824-8.341,30.165,0l75.413,75.413l75.413-75.413c8.341-8.341,21.824-8.341,30.165,0    c8.341,8.32,8.341,21.824,0,30.165l-75.413,75.413L361.461,331.317z" data-original="#000000" style="" class=""/>
                     </svg>`;
-                bask.fetchItems();
                 document.querySelector('body').insertAdjacentHTML('afterBegin', `<div class="modal-window">${svg}</div>`);
+                bask.render();
             }
             document.querySelector('.modal-close').addEventListener('click', function() {
                 document.querySelector('.modal-window').remove();
@@ -88,21 +85,23 @@ class Basket {
         })
     }
     addItem(el) {
-        let search = this.items.find(elem => elem.product_name == el.title);
+        let search = this.items.find(elem => elem.product_name == el.product_name);
+        console.log(search);
         if(search) {
             search.quantity++;
             this.renderItems('.basket');
         } else {
             this.items.push(el);
         }
+        console.log(this.items);
     }
     delItem(el) {
-        let search = this.items.find(elem => elem.product_name == el.title);
+        let search = this.items.find(elem => elem.product_name == el.product_name);
         if(search.quantity > 1) {
             search.quantity--;
             this.renderItems('.basket');
         } else {
-            this.items.splice(this.items.indexOf(el), 1);
+            this.items.splice(this.items.indexOf(search), 1);
             this.renderItems('.basket');
         }
     }
@@ -114,11 +113,13 @@ class Basket {
 
         document.querySelector('.basket').addEventListener('click', el => {
             if(el.target.classList.contains('plus')) {
-                let item = new ItemInBasket(el.target.dataset['name'], el.target.dataset['price']);
+                let {name, price} = el.target.dataset;
+                let item = new ItemInBasket(name, price);
                 this.addItem(item);
             }
             if(el.target.classList.contains('minus')) {
-                let item = new ItemInBasket(el.target.dataset['name'], el.target.dataset['price']);
+                let {name, price} = el.target.dataset;
+                let item = new ItemInBasket(name, price);
                 this.delItem(item);
             }
         })
@@ -129,7 +130,10 @@ class Basket {
             const goodItem = new ItemInBasket(item.product_name, item.price, item.quantity);
             rej += goodItem.render();
         });
-        document.querySelector(selector).innerHTML = rej;
+        const block = document.querySelector(selector);
+        if(block) {
+            block.innerHTML = rej;
+        }
         this.totalPrice('.basket');
     }
     totalPrice(sel) {
@@ -137,35 +141,37 @@ class Basket {
         
         let listHt = `Итого: ${res} руб`;
         const bas = document.querySelector(sel);
-        const tot = document.createElement('div');
-        tot.classList.add('basket-item');
-        bas.appendChild(tot);
-        tot.innerHTML = listHt;
+        if(bas) {
+            const tot = document.createElement('div');
+            tot.classList.add('basket-item');
+            bas.appendChild(tot);
+            tot.innerHTML = listHt;
+        }
     }
 }
 
 class ItemInBasket {
     constructor(title, price, count = 1) {
-        this.title = title;
+        this.product_name = title;
         this.price = price;
-        this.count = count;
+        this.quantity = count;
     }
     render() {
         return `<div class="basket-item">
-                    <span>${this.title}</span>
-                    <span>${this.count}</span>
+                    <span>${this.product_name}</span>
+                    <span>${this.quantity}</span>
                     <span>${this.price}</span>
                     <button class="basket-item-btn plus" 
-                    data-name="${this.title}" data-price="${this.price}"> + </button>
+                    data-name="${this.product_name}" data-price="${this.price}"> + </button>
                     <button class="basket-item-btn minus" 
-                    data-name="${this.title}" data-price="${this.price}"> - </button>
+                    data-name="${this.product_name}" data-price="${this.price}"> - </button>
                 </div>`;
     }
 }
 
-const list = new GoodsList();
+bask = new Basket();
+const list = new GoodsList(bask);
 list.fetchGoods();
-bask = new Basket;
 
 function makeGETRequest(url) {
     return fetch(url)
