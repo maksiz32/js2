@@ -182,7 +182,6 @@ function makeGETRequest(url) {
             .then(text => text.json());
 }
 
-document.querySelector('.search-button').addEventListener('click', (e) => {
-    const value = document.querySelector('.goods-search').value;
-    list.filterGoods(value);
+document.querySelector('.goods-search').addEventListener('input', (e) => {
+    list.filterGoods(e.target.value);
 });
