@@ -24,18 +24,20 @@ class GoodsList {
         this.goods = [];
         this.bask = bask;
         this.selector = '.goods-list';
+        this.filteredGoods = [];
     }
     fetchGoods() {
         makeGETRequest(`${API_URL}/catalogData.json`)
             .then(data => {
                 this.goods = [...data];
+                this.filteredGoods = [...data];
                 this.render();
                 this.sumAllGoods();
             });
     }
     render() {
         let listHtml = '';
-        this.goods.forEach(good => {
+        this.filteredGoods.forEach(good => {
             const goodItem = new GoodsItem(good.product_name, good.price);
             listHtml += goodItem.render();
         });
@@ -54,6 +56,11 @@ class GoodsList {
         const totalPrice = `<div class="goods-total">Итого: ${sum} руб</div>`;
         document.querySelector(this.selector).insertAdjacentHTML('afterend', totalPrice);
     }
+    filterGoods(value) {
+        const regexp = new RegExp(value, 'i');
+        this.filteredGoods = this.goods.filter(good => regexp.test(good.product_name));
+        this.render();
+    }
 }
 
 class Basket {
@@ -63,7 +70,6 @@ class Basket {
         this.fetchItems();
     }
     fetchItems() {
-        console.log(this.items.length);
         makeGETRequest(`${API_URL}/getBasket.json`)
             .then(data => {
                 const outerbasket = [...data.contents];
@@ -86,14 +92,12 @@ class Basket {
     }
     addItem(el) {
         let search = this.items.find(elem => elem.product_name == el.product_name);
-        console.log(search);
         if(search) {
             search.quantity++;
             this.renderItems('.basket');
         } else {
             this.items.push(el);
         }
-        console.log(this.items);
     }
     delItem(el) {
         let search = this.items.find(elem => elem.product_name == el.product_name);
@@ -177,4 +181,8 @@ function makeGETRequest(url) {
     return fetch(url)
             .then(text => text.json());
 }
-  
+
+document.querySelector('.search-button').addEventListener('click', (e) => {
+    const value = document.querySelector('.goods-search').value;
+    list.filterGoods(value);
+});
