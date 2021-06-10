@@ -30,5 +30,5 @@ document.querySelector('button[name="btnForm"]').addEventListener('click', (el) 
         textBlock.classList.add('red');
         document.getElementById('textBlock').insertAdjacentText('afterbegin', 'Никаких цифр! Только текст');
         boleanT = false;
-    }
+    } 
 })
