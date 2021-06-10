@@ -1,0 +1,13 @@
+.formTest {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    padding: 20px;
+
+    & > input {
+        margin: 10px;
+    }
+}
+.red {
+    border: 2px solid red; 
+}

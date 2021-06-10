@@ -1,3 +1,23 @@
+.formTest {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 250px;
+  padding: 20px;
+}
+
+.formTest > input {
+  margin: 10px;
+}
+
+.red {
+  border: 2px solid red;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -32,13 +52,11 @@ body {
 }
 
 .cart {
-  width: 100vw;
   min-height: 70px;
   text-align: end;
 }
 
 .cart-menu {
-  width: 100vw;
   background-color: lightgray;
   min-height: 40px;
   display: -webkit-box;
@@ -80,6 +98,7 @@ body {
   border-radius: 4px;
   margin: 0 20px 0 0;
   padding: 8px;
+  min-width: 300px;
 }
 
 .goods-item {
@@ -126,6 +145,11 @@ body {
   background-color: lightsteelblue;
 }
 
+.goods-item-btn:active {
+  color: #fff;
+  background-color: #000;
+}
+
 .goods-item-title {
   margin: 0;
 }
@@ -156,6 +180,10 @@ body {
 .basket-item {
   padding: 20px;
   border: 1px solid lightgrey;
+}
+
+.basket-item-btn {
+  cursor: pointer;
 }
 
 .basket span {

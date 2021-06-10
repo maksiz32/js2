@@ -1,3 +1,5 @@
+@import 'form'; 
+
 @mixin itemHover {
     cursor: pointer;
     border: 1px solid lightseagreen;
@@ -43,12 +45,12 @@ body {
     }
 }
 .cart {
-        width: 100vw;
+        // width: 100vw;
         min-height: 70px;
         text-align: end;
 
     &-menu {
-        width: 100vw;
+        // width: 100vw;
         background-color: lightgray;
         min-height: 40px;
         display: flex;
@@ -81,28 +83,7 @@ body {
         border-radius: 4px;
         margin: 0 20px 0 0;
         padding: 8px;
-
-    //     width: 0;
-    //     min-height: 0;
-    //     padding: 5px;
-    //     outline: none;
-    //     box-sizing: border-box;
-    //     background-color: transparent;
-    //     border: none;
-    //     position: absolute;
-    //     top: 60px;
-    //     left: -119px;
-    //     color: #fff;
-    //     font-size: 16px;
-    //     font-family: Arial;
-    //     text-transform: capitalize;
-
-    //     &:focus {
-    //         width: 150px;
-    //         min-height: 20px;
-    //         transition: width 1s ease;
-    //         border: 2px solid #fff;
-    //     }
+        min-width: 300px;
     }
 
     &-item {
@@ -132,6 +113,11 @@ body {
 
             &:hover {
                 @include itemHover;
+            }
+
+            &:active {
+                color: #fff;
+                background-color: #000;
             }
         }
 
@@ -164,6 +150,10 @@ body {
     &-item {
         padding: 20px;
         border: 1px solid lightgrey;
+
+        &-btn {
+            cursor: pointer;
+        }
     }
     
     & span {
