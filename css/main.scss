@@ -44,21 +44,16 @@ body {
         }
     }
 }
-.cart {
-        // width: 100vw;
-        min-height: 70px;
-        text-align: end;
-
-    &-menu {
+.cart-menu {
         // width: 100vw;
         background-color: lightgray;
         min-height: 40px;
         display: flex;
-        padding: 8px 0 8px 20px;
-    }
+        justify-content: space-between;
+        padding: 10px;
 
     &-buttonblock {
-        border: 1px solid lightslategray;
+        border: 1px solid whitesmoke;
     }
 
     &-button {
@@ -84,6 +79,11 @@ body {
         margin: 0 20px 0 0;
         padding: 8px;
         min-width: 300px;
+
+        &:focus-visible {
+            outline-style: none;
+            background-color: whitesmoke;
+        }
     }
 
     &-item {

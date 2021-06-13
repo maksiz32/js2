@@ -1,3 +1,4 @@
+
 document.querySelector('button[name="btnForm"]').addEventListener('click', (el) => {
     const name = document.querySelector('input[name="name"]');
     const phone = document.querySelector('input[name="phone"]');
@@ -19,7 +20,7 @@ document.querySelector('button[name="btnForm"]').addEventListener('click', (el) 
         document.getElementById('phone').insertAdjacentText('afterbegin', 'Телефон в формате +70000000000 или 80000000000');
         boleanT = false;
     }
-    if(!/^[a-z0-9\._-]+@[a-z0-9_-]+\.[a-z]{2,4}$/.test(mail.value)) {
+    if(!/^[a-z0-9\._-]+@[a-z0-9_-]+\.[a-z]{2,4}$/i.test(mail.value)) {
         el.preventDefault();
         mail.classList.add('red');
         document.getElementById('mail').insertAdjacentText('afterbegin', 'Введите корректный email');
@@ -30,5 +31,5 @@ document.querySelector('button[name="btnForm"]').addEventListener('click', (el) 
         textBlock.classList.add('red');
         document.getElementById('textBlock').insertAdjacentText('afterbegin', 'Никаких цифр! Только текст');
         boleanT = false;
-    } 
+    }
 })
