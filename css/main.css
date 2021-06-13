@@ -95,8 +95,9 @@ body {
   border: none;
   border-radius: 4px;
   margin: 0 20px 0 0;
-  padding: 8px;
+  padding: 15px 8px 0 8px;
   min-width: 300px;
+  font-size: larger;
 }
 
 .goods-search:focus-visible {
@@ -153,12 +154,8 @@ body {
   background-color: #000;
 }
 
-.goods-item-title {
-  margin: 0;
-}
-
-.goods-item-price {
-  margin: 0;
+.goods-item > h3, .goods-item p {
+  margin: 5px 0;
 }
 
 .goods-total {
@@ -190,6 +187,6 @@ body {
 }
 
 .basket span {
-  margin: 0 50px;
+  margin: 0 20px;
 }
 /*# sourceMappingURL=main.css.map */

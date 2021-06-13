@@ -15,14 +15,30 @@ const app = new Vue({
                     .then(text => text.json())
                     .catch(error => console.log(error));
         },
-
         FilterGoods() {
             const regexp = new RegExp(this.searchLine, 'i');
             this.filteredGoods = this.goods.filter(good => regexp.test(good.product_name));
         },
-
         totalBasketAmount() {
-            //
+            return this.basketItems.reduce((summ, el) => summ += (el.price * el.quantity), 0);
+        },
+        addProduct(item) {
+            let search = this.basketItems.find(elem => elem.id_product == item.id_product);
+            if(search) {
+                search.quantity++;
+            } else {
+                //Добавить в item свойство quantity: 1, которого нет в этом объекте
+                const unit = Object.assign({quantity: 1}, item);
+                this.basketItems.push(unit);
+            }
+        },
+        delProduct(item) {
+            let search = this.basketItems.find(elem => elem.id_product == item.id_product);
+            if(search.quantity > 1) {
+                search.quantity--;
+            } else {
+                this.basketItems.splice(this.basketItems.indexOf(search), 1);
+            }
         }
     },                                                                              
     mounted() {
@@ -30,6 +46,10 @@ const app = new Vue({
             .then(data => {
                 this.goods = [...data];
                 this.filteredGoods = [...data];
+            });
+        this.makeGETRequest(`${API_URL}/getBasket.json`)
+            .then(data => {
+                this.basketItems = [...data.contents];
             });
     }
 })
