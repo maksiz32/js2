@@ -6,7 +6,8 @@ const app = new Vue({
         goods: [],
         filteredGoods: [],
         searchLine: '',
-        isVisibleCart: false
+        isVisibleCart: false,
+        basketItems: []
     },
     methods: {
         makeGETRequest(url) {
@@ -18,6 +19,10 @@ const app = new Vue({
         FilterGoods() {
             const regexp = new RegExp(this.searchLine, 'i');
             this.filteredGoods = this.goods.filter(good => regexp.test(good.product_name));
+        },
+
+        totalBasketAmount() {
+            //
         }
     },                                                                              
     mounted() {
