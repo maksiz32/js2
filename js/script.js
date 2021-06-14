@@ -40,12 +40,24 @@ const app = new Vue({
                 this.basketItems.splice(this.basketItems.indexOf(search), 1);
             }
         }
-    },                                                                              
+    },
+    filters: {
+        formatPrice: function(price) {
+            if(!parseInt(price)) { return "" };
+                
+                return price+'' + " руб";
+        }
+    },
     mounted() {
         this.makeGETRequest(`${API_URL}/catalogData.json`)
             .then(data => {
                 this.goods = [...data];
                 this.filteredGoods = [...data];
+
+                const hideBlock = document.querySelector('.modal-window');
+                hideBlock.classList.remove('hide');
+                const goodsListBlock = document.querySelector('.goods-list');
+                goodsListBlock.classList.remove('hide');
             });
         this.makeGETRequest(`${API_URL}/getBasket.json`)
             .then(data => {
