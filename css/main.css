@@ -24,7 +24,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   max-width: 1400px;
 }
@@ -186,17 +186,28 @@ body {
   right: 55px;
 }
 
-.basket-item {
+.basket-item:not(:last-of-type) {
   padding: 20px;
   border: 1px solid lightgrey;
+  border-bottom: none;
 }
 
-.basket-item-btn {
+.basket-item:not(:last-of-type)-btn {
   cursor: pointer;
 }
 
 .basket span {
   margin: 0 20px;
+}
+
+.totalText {
+  font-weight: 800;
+  font-size: 1.5em;
+  background-color: #a3a3a3;
+  color: #fff;
+  border: 1px solid lightgrey;
+  border-top: none;
+  padding: 10px;
 }
 
 .hide {

@@ -16,7 +16,7 @@
     box-sizing: border-box;
 }
 body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     max-width: 1400px;
 }
@@ -151,9 +151,10 @@ body {
     padding: 50px;
     right: 55px;
 
-    &-item {
+    &-item:not(:last-of-type) {
         padding: 20px;
         border: 1px solid lightgrey;
+        border-bottom: none;
 
         &-btn {
             cursor: pointer;
@@ -163,6 +164,15 @@ body {
     & span {
         margin: 0 20px;
     }
+}
+.totalText {
+    font-weight: 800;
+    font-size: 1.5em;
+    background-color: rgb(163, 163, 163);
+    color: #fff;
+    border: 1px solid lightgrey;
+    border-top: none;
+    padding: 10px;
 }
 .hide {
     display: none;

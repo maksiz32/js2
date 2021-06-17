@@ -5,18 +5,23 @@ const app = new Vue({
     data: {
         goods: [],
         filteredGoods: [],
-        searchLine: '',
         isVisibleCart: false,
+        isConnect: false,
+        errorText: '',
         basketItems: []
     },
     methods: {
-        makeGETRequest(url) {
-            return fetch(url)
-                    .then(text => text.json())
-                    .catch(error => console.log(error));
+        async makeGETRequest(url) {
+            try {
+                const text = await fetch(url);
+                return await text.json();
+            } catch (error) {
+                this.errorText = 'Нет подключения к серверу ('+error+')';
+                return console.log(this.errorText);
+            }
         },
-        FilterGoods() {
-            const regexp = new RegExp(this.searchLine, 'i');
+        filterGoods(search) {
+            const regexp = new RegExp(search, 'i');
             this.filteredGoods = this.goods.filter(good => regexp.test(good.product_name));
         },
         totalBasketAmount() {
@@ -39,18 +44,17 @@ const app = new Vue({
             } else {
                 this.basketItems.splice(this.basketItems.indexOf(search), 1);
             }
-        }
-    },
-    filters: {
-        formatPrice: function(price) {
+        },
+        formatPrice(price) {
             if(!parseInt(price)) { return "" };
-                
-                return price+'' + " руб";
+            
+            return price+'' + " руб";
         }
     },
     mounted() {
         this.makeGETRequest(`${API_URL}/catalogData.json`)
             .then(data => {
+                this.isConnect = true;
                 this.goods = [...data];
                 this.filteredGoods = [...data];
 
@@ -64,7 +68,7 @@ const app = new Vue({
                 this.basketItems = [...data.contents];
             });
     }
-})
+});
 
 // class GoodsItem {
 //     constructor(title, price, img = 'nophoto.png') {
