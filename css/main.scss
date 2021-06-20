@@ -78,6 +78,7 @@ body {
         display: flex;
         justify-content: center;
         margin: 20px auto;
+        flex-wrap: wrap;
     }
 
     &-search {
@@ -95,7 +96,7 @@ body {
     }
 
     &-item {
-        margin: 0 10px;
+        margin: 10px 10px;
         padding: 10px;
         border: 1px solid lightgray;
         align-items: center;
@@ -150,6 +151,7 @@ body {
     background-color: white;
     padding: 50px;
     right: 55px;
+    max-height: 80vh;
 
     &-item:not(:last-of-type) {
         padding: 20px;

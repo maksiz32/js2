@@ -11,14 +11,25 @@ const app = new Vue({
         basketItems: []
     },
     methods: {
-        async makeGETRequest(url) {
-            try {
-                const text = await fetch(url);
-                return await text.json();
-            } catch (error) {
+        makeGETRequest(url) {
+                return fetch(url)
+                .then(text => text.json())
+                .catch (error => {
                 this.errorText = 'Нет подключения к серверу ('+error+')';
-                return console.log(this.errorText);
-            }
+            })
+        },
+        makePOSTRequest(url, data) {
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data, null, 2)
+            })
+                .then(result => result.json())
+                .catch(error => {
+                    this.$refs.error.text = error;
+                })
         },
         filterGoods(search) {
             const regexp = new RegExp(search, 'i');
@@ -28,31 +39,52 @@ const app = new Vue({
             return this.basketItems.reduce((summ, el) => summ += (el.price * el.quantity), 0);
         },
         addProduct(item) {
+            // let content = this.makeGETRequest(`/basketData`);
             let search = this.basketItems.find(elem => elem.id_product == item.id_product);
             if(search) {
-                search.quantity++;
+                this.makePOSTRequest(`/addToCart`, search)
+                    .then(data => {
+                        if (data.result === 1) {
+                            search.quantity++;
+                        }
+                    })
             } else {
                 //Добавить в item свойство quantity: 1, которого нет в этом объекте
                 const unit = Object.assign({quantity: 1}, item);
-                this.basketItems.push(unit);
+                
+                this.makePOSTRequest(`/addToCart`, unit)
+                    .then(data => {
+                        if (data.result) {
+                            this.basketItems.push(unit);
+                        }
+                    })
             }
         },
         delProduct(item) {
             let search = this.basketItems.find(elem => elem.id_product == item.id_product);
-            if(search.quantity > 1) {
-                search.quantity--;
+            if (search.quantity > 1) {
+                this.makePOSTRequest('/remoteFromCart', search)
+                .then(data => {
+                    if (data.result) {
+                        search.quantity--;
+                    }
+                })
             } else {
-                this.basketItems.splice(this.basketItems.indexOf(search), 1);
+                this.makePOSTRequest('/remoteFromCart', item)
+                .then(data => {
+                    if (data.result) {
+                        this.basketItems.splice(this.basketItems.indexOf(search), 1);
+                    }
+                })
             }
         },
         formatPrice(price) {
-            if(!parseInt(price)) { return "" };
-            
+            if (!parseInt(price)) { return "" };
             return price+'' + " руб";
         }
     },
     mounted() {
-        this.makeGETRequest(`${API_URL}/catalogData.json`)
+        this.makeGETRequest(`/catalogData`)
             .then(data => {
                 this.isConnect = true;
                 this.goods = [...data];
@@ -63,9 +95,10 @@ const app = new Vue({
                 const goodsListBlock = document.querySelector('.goods-list');
                 goodsListBlock.classList.remove('hide');
             });
-        this.makeGETRequest(`${API_URL}/getBasket.json`)
+            
+        this.makeGETRequest(`/basketData`)
             .then(data => {
-                this.basketItems = [...data.contents];
+                this.basketItems = [...data];
             });
     }
 });
