@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const app = express();
+const log = require('./log.js');
 
 app.use(express.static('.'));
 
@@ -28,6 +29,7 @@ app.get('/basketData', (req, res) => {
 });
 
 app.post('/addToCart', (req, res) => {
+  let action = '';
   if(!req.body) return res.sendStatus(400);
   fs.readFile('data/cart.json', 'utf8', (err, data) => {
     if (err) {
@@ -35,11 +37,14 @@ app.post('/addToCart', (req, res) => {
     } else {
       const cart = JSON.parse(data);
       const item = req.body;
+      const unit = item.product_name;
       
       let find = cart.find(el => parseInt(el.id_product) === parseInt(item.id_product));
       if (find) {
+        action = 'plus item';
         find.quantity++;
       } else {
+        action = 'add item';
         cart.push(item);
       }
 
@@ -48,6 +53,7 @@ app.post('/addToCart', (req, res) => {
         if (err) {
           res.send('{"result": 0}');
         } else {
+          log._log(action, unit);
           res.send('{"result": 1}');
         }
       });
@@ -56,6 +62,7 @@ app.post('/addToCart', (req, res) => {
 });
 
 app.post('/remoteFromCart', (req, res) => {
+  let action = '';
   if(!req.body) return res.sendStatus(400);
   fs.readFile('data/cart.json', 'utf8', (err, data) => {
     if (err) {
@@ -63,12 +70,15 @@ app.post('/remoteFromCart', (req, res) => {
     } else {
       const cart = JSON.parse(data);
       const item = req.body;
+      const unit = item.product_name;
       
       let find = cart.find(el => parseInt(el.id_product) === parseInt(item.id_product));
       if(find) {
         if (parseInt(find.quantity) > 1) {
+          action = 'minus item';
           find.quantity--;
         } else {
+          action = 'remote item';
           cart.splice(cart.indexOf(find), 1);
         }
 
@@ -77,6 +87,7 @@ app.post('/remoteFromCart', (req, res) => {
           if (err) {
             res.send('{"result": 0}');
           } else {
+            log._log(action, unit);
             res.send('{"result": 1}');
           }
         });

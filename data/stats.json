@@ -1,0 +1,22 @@
+[
+ {
+  "action": "add item",
+  "item": "Коврик",
+  "time": "Jun 20, 2021 10:15 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jun 20, 2021 10:15 PM"
+ },
+ {
+  "action": "remote item",
+  "item": "Кресло",
+  "time": "Jun 20, 2021 10:15 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Клавиатура",
+  "time": "Jun 20, 2021 10:15 PM"
+ }
+]
