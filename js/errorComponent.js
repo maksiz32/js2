@@ -1,6 +1,5 @@
 Vue.component('connect-error', {
-    props: ['error-text'],
     template: `
-            <div v-text="errorText">h</div>
+            <div>Соединение с базой данных отсутствует</div>
             `
 });

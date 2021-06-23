@@ -1,12 +1,9 @@
-const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
-
 const app = new Vue({
     el: '#app',
     data: {
         goods: [],
         filteredGoods: [],
         isVisibleCart: false,
-        isConnect: false,
         errorText: '',
         basketItems: []
     },
@@ -86,7 +83,6 @@ const app = new Vue({
     mounted() {
         this.makeGETRequest(`/catalogData`)
             .then(data => {
-                this.isConnect = true;
                 this.goods = [...data];
                 this.filteredGoods = [...data];
 
@@ -103,6 +99,7 @@ const app = new Vue({
     }
 });
 
+// const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 // class GoodsItem {
 //     constructor(title, price, img = 'nophoto.png') {
 //         this.product_name = title;

@@ -7,26 +7,21 @@
   },
   {
     "quantity": 1,
-    "product_name": "Клавиатура",
-    "price": 200,
-    "id_product": 124
-  },
-  {
-    "quantity": 1,
     "product_name": "Мышка",
     "price": 100,
     "id_product": 123
   },
   {
-    "quantity": 2,
+    "quantity": 1,
     "product_name": "Ноутбук",
     "price": 400,
     "id_product": 127
   },
   {
-    "quantity": 1,
-    "product_name": "Коврик",
+    "quantity": 2,
+    "product_name": "Наушники",
     "price": 150,
-    "id_product": 128
+    "id_product": 126,
+    "img": "img/headphone.jpg"
   }
 ]

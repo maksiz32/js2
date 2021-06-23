@@ -18,5 +18,30 @@
   "action": "minus item",
   "item": "Клавиатура",
   "time": "Jun 20, 2021 10:15 PM"
+ },
+ {
+  "action": "remote item",
+  "item": "Клавиатура",
+  "time": "Jun 20, 2021 11:54 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jun 20, 2021 11:55 PM"
+ },
+ {
+  "action": "remote item",
+  "item": "Коврик",
+  "time": "Jun 20, 2021 11:55 PM"
+ },
+ {
+  "action": "add item",
+  "item": "Наушники",
+  "time": "Jun 21, 2021 10:09 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Наушники",
+  "time": "Jun 21, 2021 10:09 PM"
  }
 ]

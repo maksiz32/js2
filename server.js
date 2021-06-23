@@ -3,6 +3,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const app = express();
 const log = require('./log.js');
+const _log = log._log;
 
 app.use(express.static('.'));
 
@@ -53,7 +54,7 @@ app.post('/addToCart', (req, res) => {
         if (err) {
           res.send('{"result": 0}');
         } else {
-          log._log(action, unit);
+          _log(action, unit);
           res.send('{"result": 1}');
         }
       });
@@ -61,7 +62,7 @@ app.post('/addToCart', (req, res) => {
   });
 });
 
-app.post('/remoteFromCart', (req, res) => {
+app.delete('/remoteFromCart', (req, res) => {
   let action = '';
   if(!req.body) return res.sendStatus(400);
   fs.readFile('data/cart.json', 'utf8', (err, data) => {
@@ -87,7 +88,7 @@ app.post('/remoteFromCart', (req, res) => {
           if (err) {
             res.send('{"result": 0}');
           } else {
-            log._log(action, unit);
+            _log(action, unit);
             res.send('{"result": 1}');
           }
         });

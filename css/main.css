@@ -31,19 +31,17 @@ body {
 
 .modal-window {
   z-index: 1;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(10, 10, 10, 0.9);
+  width: 40vw;
   position: absolute;
-  overflow-y: hidden;
+  right: 5px;
 }
 
 .modal-close {
-  fill: #fff;
+  fill: #000;
   z-index: 2;
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: -35px;
+  right: 322px;
 }
 
 .modal-close:hover {
@@ -77,11 +75,12 @@ body {
 }
 
 .cart-menu-button {
-  background-color: #fff;
+  background-color: #909397;
   border: 1px solid lightgrey;
   padding: 6px 15px;
   border-radius: 20px;
   margin: 10px 20px 10px 0;
+  background-color: #fff;
 }
 
 .cart-menu-button:hover {
@@ -104,16 +103,37 @@ body {
 
 .goods-search {
   border: none;
-  border-radius: 4px;
-  margin: 0 20px 0 0;
+  margin: 0 20px 0 10px;
   padding: 15px 8px 0 8px;
-  min-width: 300px;
+  max-width: 210px;
   font-size: larger;
+  background-color: transparent;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  text-align: center;
+  font-size: large;
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
 }
 
 .goods-search:focus-visible {
   outline-style: none;
-  background-color: whitesmoke;
+}
+
+.goods-search::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.goods-search:-ms-input-placeholder {
+  color: #fff;
+}
+
+.goods-search::-ms-input-placeholder {
+  color: #fff;
+}
+
+.goods-search::placeholder {
+  color: #fff;
 }
 
 .goods-item {
@@ -130,12 +150,16 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #e9e8e8;
 }
 
 .goods-item-pic {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  height: 100px;
 }
 
 .goods-item:hover {
@@ -145,7 +169,7 @@ body {
 }
 
 .goods-item-btn {
-  background-color: #fff;
+  background-color: #909397;
   border: 1px solid lightgrey;
   padding: 6px 15px;
   border-radius: 20px;
@@ -181,26 +205,35 @@ body {
 
 .basket {
   position: absolute;
-  top: 100px;
+  top: 60px;
   z-index: 2;
   background-color: white;
-  padding: 50px;
-  right: 55px;
-  max-height: 80vh;
+  /* padding: 0px; */
+  right: 5px;
 }
 
 .basket-item:not(:last-of-type) {
-  padding: 20px;
+  padding: 8px;
   border: 1px solid lightgrey;
   border-bottom: none;
 }
 
-.basket-item:not(:last-of-type)-btn {
+.basket-item-btn {
   cursor: pointer;
 }
 
 .basket span {
-  margin: 0 20px;
+  margin: 0 5px;
+}
+
+.basket::before {
+  content: "";
+  display: block;
+  border: 12px solid transparent;
+  border-bottom: 15px solid #fff;
+  position: absolute;
+  top: -26px;
+  right: 11px;
 }
 
 .totalText {
