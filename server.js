@@ -62,7 +62,7 @@ app.post('/addToCart', (req, res) => {
   });
 });
 
-app.delete('/remoteFromCart', (req, res) => {
+app.post('/remoteFromCart', (req, res) => {
   let action = '';
   if(!req.body) return res.sendStatus(400);
   fs.readFile('data/cart.json', 'utf8', (err, data) => {

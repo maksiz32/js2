@@ -1,27 +1,22 @@
 [
   {
-    "quantity": 2,
+    "quantity": 9,
     "product_name": "Колонки",
     "price": 130,
     "id_product": 125
   },
   {
-    "quantity": 1,
-    "product_name": "Мышка",
-    "price": 100,
-    "id_product": 123
-  },
-  {
-    "quantity": 1,
-    "product_name": "Ноутбук",
-    "price": 400,
-    "id_product": 127
-  },
-  {
-    "quantity": 2,
+    "quantity": 5,
     "product_name": "Наушники",
     "price": 150,
     "id_product": 126,
     "img": "img/headphone.jpg"
+  },
+  {
+    "quantity": 20,
+    "product_name": "Ноутбук",
+    "price": 400,
+    "id_product": 127,
+    "img": "img/notebook.jpg"
   }
 ]

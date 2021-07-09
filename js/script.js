@@ -32,9 +32,6 @@ const app = new Vue({
             const regexp = new RegExp(search, 'i');
             this.filteredGoods = this.goods.filter(good => regexp.test(good.product_name));
         },
-        totalBasketAmount() {
-            return this.basketItems.reduce((summ, el) => summ += (el.price * el.quantity), 0);
-        },
         addProduct(item) {
             // let content = this.makeGETRequest(`/basketData`);
             let search = this.basketItems.find(elem => elem.id_product == item.id_product);
@@ -76,8 +73,31 @@ const app = new Vue({
             }
         },
         formatPrice(price) {
-            if (!parseInt(price)) { return "" };
-            return price+'' + " руб";
+            if (!parseFloat(price)) { return "" };
+            price  = ''+price;
+            countString = price.length;
+            if(countString < 4) {
+                return price + " руб";
+            } else {
+                let strOut = '';
+                for(let i = 1; i <= countString; i++) {
+                    if(i%4 === 0) {
+                        strOut += " ";
+                    }
+                    strOut += price[countString - i];
+                }
+                let priceOut = '';
+                countOut = strOut.length;
+                for(let i = 1; i <= countOut; i++) {
+                    priceOut += strOut[countOut - i];
+                }
+                return priceOut + " руб";
+            }
+        }
+    },
+    computed: {
+        totalBasketAmount: function() {
+            return this.basketItems.reduce((summ, el) => summ += (el.price * el.quantity), 0);
         }
     },
     mounted() {
