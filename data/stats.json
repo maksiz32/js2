@@ -373,5 +373,465 @@
   "action": "minus item",
   "item": "Наушники",
   "time": "Jul 9, 2021 6:30 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Колонки",
+  "time": "Jul 10, 2021 12:34 AM"
+ },
+ {
+  "action": "plus item",
+  "item": "Колонки",
+  "time": "Jul 10, 2021 12:34 AM"
+ },
+ {
+  "action": "plus item",
+  "item": "Колонки",
+  "time": "Jul 10, 2021 12:34 AM"
+ },
+ {
+  "action": "plus item",
+  "item": "Колонки",
+  "time": "Jul 10, 2021 12:34 AM"
+ },
+ {
+  "action": "plus item",
+  "item": "Наушники",
+  "time": "Jul 10, 2021 12:55 AM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 10, 2021 12:55 AM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 10, 2021 12:55 AM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 10, 2021 12:55 AM"
+ },
+ {
+  "action": "add item",
+  "item": "Коврик",
+  "time": "Jul 10, 2021 12:55 AM"
+ },
+ {
+  "action": "add item",
+  "item": "Кресло",
+  "time": "Jul 10, 2021 12:55 AM"
+ },
+ {
+  "action": "plus item",
+  "item": "Кресло",
+  "time": "Jul 10, 2021 7:10 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Кресло",
+  "time": "Jul 10, 2021 7:10 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Кресло",
+  "time": "Jul 10, 2021 7:10 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Кресло",
+  "time": "Jul 10, 2021 7:10 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Кресло",
+  "time": "Jul 10, 2021 7:11 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Кресло",
+  "time": "Jul 10, 2021 7:11 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Наушники",
+  "time": "Jul 11, 2021 12:31 AM"
+ },
+ {
+  "action": "add item",
+  "item": "Мышка",
+  "time": "Jul 11, 2021 8:49 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 8:49 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 8:49 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 8:49 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 8:50 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Мышка",
+  "time": "Jul 11, 2021 10:03 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:03 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:03 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:03 PM"
+ },
+ {
+  "action": "add item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:10 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:10 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:10 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:10 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:10 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Колонки",
+  "time": "Jul 11, 2021 10:40 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Колонки",
+  "time": "Jul 11, 2021 10:40 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Колонки",
+  "time": "Jul 11, 2021 10:40 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Колонки",
+  "time": "Jul 11, 2021 10:40 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:41 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:41 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Кресло",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Кресло",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Кресло",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Кресло",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:43 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:44 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:44 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:44 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Мышка",
+  "time": "Jul 11, 2021 10:54 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Коврик",
+  "time": "Jul 11, 2021 10:56 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:56 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:56 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:56 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:57 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:57 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 10:57 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Кресло",
+  "time": "Jul 11, 2021 10:58 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Мышка",
+  "time": "Jul 11, 2021 10:58 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Мышка",
+  "time": "Jul 11, 2021 10:58 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Кресло",
+  "time": "Jul 11, 2021 10:58 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 10:59 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:00 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:00 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:00 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:00 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:00 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:00 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:02 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:02 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:02 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:02 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:02 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Коврик",
+  "time": "Jul 11, 2021 11:02 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:03 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Мышка",
+  "time": "Jul 11, 2021 11:07 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Мышка",
+  "time": "Jul 11, 2021 11:07 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Наушники",
+  "time": "Jul 11, 2021 11:29 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Наушники",
+  "time": "Jul 11, 2021 11:29 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Ноутбук",
+  "time": "Jul 11, 2021 11:29 PM"
+ },
+ {
+  "action": "plus item",
+  "item": "Колонки",
+  "time": "Jul 11, 2021 11:29 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 11:33 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 11:33 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 11:33 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 11:33 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 11:33 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 11:33 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 11:33 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 11:33 PM"
+ },
+ {
+  "action": "minus item",
+  "item": "Клавиатура",
+  "time": "Jul 11, 2021 11:33 PM"
  }
 ]

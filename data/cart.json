@@ -1,22 +1,50 @@
 [
   {
-    "quantity": 9,
+    "quantity": 16,
     "product_name": "Колонки",
     "price": 130,
     "id_product": 125
   },
   {
-    "quantity": 5,
+    "quantity": 9,
     "product_name": "Наушники",
     "price": 150,
     "id_product": 126,
     "img": "img/headphone.jpg"
   },
   {
-    "quantity": 20,
+    "quantity": 21,
     "product_name": "Ноутбук",
     "price": 400,
     "id_product": 127,
     "img": "img/notebook.jpg"
+  },
+  {
+    "quantity": 3,
+    "product_name": "Коврик",
+    "price": 150,
+    "id_product": 128,
+    "img": "img/pad.jpg"
+  },
+  {
+    "quantity": 7,
+    "product_name": "Кресло",
+    "price": 160,
+    "id_product": 129,
+    "img": "img/chare.jpg"
+  },
+  {
+    "quantity": 7,
+    "product_name": "Мышка",
+    "price": 100,
+    "id_product": 123,
+    "img": "img/mouse.jpg"
+  },
+  {
+    "quantity": 3,
+    "product_name": "Клавиатура",
+    "price": 200,
+    "id_product": 124,
+    "img": "img/keyboard.jpg"
   }
 ]

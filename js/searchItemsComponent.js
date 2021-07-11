@@ -5,6 +5,6 @@ Vue.component('search-items', {
         }
     },
     template: `
-    <input @input="$parent.filterGoods(searchLine)" type="text" class="goods-search" placeholder="Введите строку поиска" v-model="searchLine">
+    <input @input="$emit('filter-good', searchLine)" type="text" class="goods-search" placeholder="Введите строку поиска" v-model="searchLine">
     `
 });

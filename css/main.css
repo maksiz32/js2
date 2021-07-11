@@ -41,7 +41,7 @@ body {
   z-index: 2;
   position: absolute;
   top: -35px;
-  right: 322px;
+  right: 400px;
 }
 
 .modal-close:hover {
@@ -103,7 +103,7 @@ body {
 
 .goods-search {
   border: none;
-  margin: 0 20px 0 10px;
+  margin: 0 5px 0 10px;
   padding: 15px 8px 0 8px;
   max-width: 210px;
   font-size: larger;
@@ -210,6 +210,8 @@ body {
   background-color: white;
   /* padding: 0px; */
   right: 5px;
+  min-width: 45vw;
+  text-align: center;
 }
 
 .basket-item:not(:last-of-type) {
@@ -246,7 +248,21 @@ body {
   padding: 10px;
 }
 
+.totalCount {
+  border-top: 1px solid lightgray;
+  background-color: #969696;
+}
+
 .hide {
   display: none;
+}
+
+@media (max-width: 768px) {
+  .basket {
+    width: 95vw;
+  }
+  .modal-close {
+    display: none;
+  }
 }
 /*# sourceMappingURL=main.css.map */

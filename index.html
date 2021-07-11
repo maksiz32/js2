@@ -10,13 +10,15 @@
         <div id="app">
             <transition name="fade">
                 <div class="modal-window hide" v-show="isVisibleCart">
-                    <basket :items="basketItems"></basket>
+                    <basket :items="basketItems" @count-basket="countInBasket"></basket>
                 </div>
             </transition>
             <header class="cart-menu">
-                    <search-items></search-items>
-                    <!-- <button class="search-button" type="button">Искать</button> -->
-                    <button class="cart-menu-button" type="button" @click="isVisibleCart = !isVisibleCart">Корзина</button>
+                <search-items @filter-good="filterGoods"></search-items>
+                <!-- <button class="search-button" type="button">Искать</button> -->
+                <button class="cart-menu-button" type="button" @click="isVisibleCart = !isVisibleCart">
+                    <span>{{ countMyBasket }}</span> Корзина
+                </button>
             </header>
             <main>
                 <goods-list :goods="filteredGoods" :error-text="errorText"></goods-list>

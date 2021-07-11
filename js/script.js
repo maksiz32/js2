@@ -5,7 +5,8 @@ const app = new Vue({
         filteredGoods: [],
         isVisibleCart: false,
         errorText: '',
-        basketItems: []
+        basketItems: [],
+        countMyBasket: 0
     },
     methods: {
         makeGETRequest(url) {
@@ -32,52 +33,15 @@ const app = new Vue({
             const regexp = new RegExp(search, 'i');
             this.filteredGoods = this.goods.filter(good => regexp.test(good.product_name));
         },
-        addProduct(item) {
-            // let content = this.makeGETRequest(`/basketData`);
-            let search = this.basketItems.find(elem => elem.id_product == item.id_product);
-            if(search) {
-                this.makePOSTRequest(`/addToCart`, search)
-                    .then(data => {
-                        if (data.result === 1) {
-                            search.quantity++;
-                        }
-                    })
-            } else {
-                //Добавить в item свойство quantity: 1, которого нет в этом объекте
-                const unit = Object.assign({quantity: 1}, item);
-                
-                this.makePOSTRequest(`/addToCart`, unit)
-                    .then(data => {
-                        if (data.result) {
-                            this.basketItems.push(unit);
-                        }
-                    })
-            }
-        },
-        delProduct(item) {
-            let search = this.basketItems.find(elem => elem.id_product == item.id_product);
-            if (search.quantity > 1) {
-                this.makePOSTRequest('/remoteFromCart', search)
-                .then(data => {
-                    if (data.result) {
-                        search.quantity--;
-                    }
-                })
-            } else {
-                this.makePOSTRequest('/remoteFromCart', item)
-                .then(data => {
-                    if (data.result) {
-                        this.basketItems.splice(this.basketItems.indexOf(search), 1);
-                    }
-                })
-            }
+        countInBasket(count) {
+            this.countMyBasket = count;
         },
         formatPrice(price) {
             if (!parseFloat(price)) { return "" };
             price  = ''+price;
             countString = price.length;
             if(countString < 4) {
-                return price + " руб";
+                return price;
             } else {
                 let strOut = '';
                 for(let i = 1; i <= countString; i++) {
@@ -91,13 +55,8 @@ const app = new Vue({
                 for(let i = 1; i <= countOut; i++) {
                     priceOut += strOut[countOut - i];
                 }
-                return priceOut + " руб";
+                return priceOut;
             }
-        }
-    },
-    computed: {
-        totalBasketAmount: function() {
-            return this.basketItems.reduce((summ, el) => summ += (el.price * el.quantity), 0);
         }
     },
     mounted() {
