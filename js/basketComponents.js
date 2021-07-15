@@ -7,7 +7,7 @@ Vue.component('basket', {
     },
     methods: {
         delProduct(item) {
-            let search = this.items.find(elem => elem.id_product == item.id_product);
+            let search = this.items.find(elem => elem.id_product === item.id_product);
             if (search.quantity > 1) {
                 this.$root.makePOSTRequest('/remoteFromCart', search)
                 .then(data => {
@@ -26,7 +26,7 @@ Vue.component('basket', {
         },
         addProduct(item) {
             // let content = this.makeGETRequest(`/basketData`);
-            let search = this.items.find(elem => elem.id_product == item.id_product);
+            let search = this.items.find(elem => elem.id_product === item.id_product);
             if(search) {
                 this.$root.makePOSTRequest(`/addToCart`, search)
                     .then(data => {

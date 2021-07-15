@@ -9,7 +9,7 @@
     <body>
         <div id="app">
             <transition name="fade">
-                <div class="modal-window hide" v-show="isVisibleCart">
+                <div class="modal-window" v-bind:class="{'hide': showOnStart}" v-show="isVisibleCart">
                     <basket :items="basketItems" @count-basket="countInBasket"></basket>
                 </div>
             </transition>

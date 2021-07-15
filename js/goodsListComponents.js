@@ -1,8 +1,24 @@
 Vue.component('goods-list', {
-    props: ['goods'],
-    template: `<section class="hide goods-list">
-                    <connect-error v-if="goods.lenght < 1"></connect-error>
-                    <goods-item v-else v-for="good in goods" :good="good" :key="good.id_product"></goods-item>
+    props: ['goods', 'showOnStart'],
+    computed: {
+        sortedGoods() {
+            if(this.goods.length > 0) {
+                let goodsArray = this.goods.slice(0);
+                // goodsArray.sort((a,b) => a-b);
+                function compare(a,b) {
+                    if(a.product_name.toLowerCase() < b.product_name.toLowerCase())
+                        return -1;
+                    if(a.product_name.toLowerCase() > b.product_name.toLowerCase())
+                        return 1;
+                    return 0;
+                }
+                return goodsArray.sort(compare);
+            }
+        }
+    },
+    template: `<section class="goods-list" v-bind:class="{'hide': showOnStart}">
+                    <connect-error v-if="sortedGoods.lenght < 1"></connect-error>
+                    <goods-item v-else v-for="good in sortedGoods" :good="good" :key="good.id_product"></goods-item>
                 </section>`,
 });
 

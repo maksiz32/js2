@@ -6,7 +6,8 @@ const app = new Vue({
         isVisibleCart: false,
         errorText: '',
         basketItems: [],
-        countMyBasket: 0
+        countMyBasket: 0,
+        showOnStart: true
     },
     methods: {
         makeGETRequest(url) {
@@ -64,11 +65,11 @@ const app = new Vue({
             .then(data => {
                 this.goods = [...data];
                 this.filteredGoods = [...data];
-
-                const hideBlock = document.querySelector('.modal-window');
-                hideBlock.classList.remove('hide');
-                const goodsListBlock = document.querySelector('.goods-list');
-                goodsListBlock.classList.remove('hide');
+                // const hideBlock = document.querySelector('.modal-window');
+                // hideBlock.classList.remove('hide');
+                // const goodsListBlock = document.querySelector('.goods-list');
+                // goodsListBlock.classList.remove('hide');
+                this.showOnStart = false;
             });
             
         this.makeGETRequest(`/basketData`)
